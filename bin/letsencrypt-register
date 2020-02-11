@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+[ -z "$1" ] && echo "Please defind domain (Ex: example.ltd)" && exit 1
+
+#note: https://miki725.github.io/docker/crypto/2017/01/29/docker+nginx+letsencrypt.html
+docker run -t --rm \
+  -v certs:/etc/letsencrypt \
+  -v certs-data:/data/letsencrypt \
+  deliverous/certbot \
+  certonly \
+  --webroot --webroot-path=/data/letsencrypt \
+  -d $1
+
+docker kill -s HUP nginx-controller
