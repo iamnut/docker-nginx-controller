@@ -1,0 +1,6 @@
+!.gitkeep
+!nginx/conf.d/00-default.conf
+!nginx/conf.d/05-example.tld.conf.disable
+!nginx/conf.d/06-dl.example.tld.conf.disable
+nginx/conf.d/**
+nginx/ssl.d/**
